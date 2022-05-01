@@ -1,13 +1,9 @@
 @import '../../styles/settings.scss';
 
-.columnForm {
+.cardForm {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
     justify-content: center;
     padding: 10px;
-}
-
-.label {
-    margin: 0 $base-size;
 }

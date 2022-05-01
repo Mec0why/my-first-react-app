@@ -15,14 +15,14 @@ const ColumnForm = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      Title:
+    <form onSubmit={handleSubmit} className={styles.columnForm}>
+      <label className={styles.label}>Title:</label>
       <TextInput
         type='text'
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      Icon:
+      <label className={styles.label}>Icon:</label>
       <TextInput
         type='text'
         value={icon}
