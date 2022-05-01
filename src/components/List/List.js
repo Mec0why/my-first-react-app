@@ -1,6 +1,8 @@
 import styles from './List.module.scss';
 import Column from '../Column/Column.js';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import shortid from 'shortid';
+import ColumnForm from '../ColumnForm/ColumnForm';
 
 const List = () => {
   const [columns, setColumns] = useState([
@@ -9,11 +11,12 @@ const List = () => {
     { id: 3, title: 'Games', icon: 'gamepad' },
   ]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setColumns((columns) => [...columns, { id: 4, title: 'Test column' }]);
-    }, 2000);
-  }, []);
+  const addColumn = (newColumn) => {
+    setColumns([
+      ...columns,
+      { id: shortid(), title: newColumn.title, icon: newColumn.icon },
+    ]);
+  };
 
   return (
     <div>
@@ -30,6 +33,7 @@ const List = () => {
           <Column key={column.id} title={column.title} icon={column.icon} />
         ))}
       </section>
+      <ColumnForm action={addColumn} />
     </div>
   );
 };
