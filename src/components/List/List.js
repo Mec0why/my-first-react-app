@@ -7,7 +7,7 @@ const List = () => {
   const columns = useSelector((state) => state.columns);
 
   return (
-    <div>
+    <div className={styles.list}>
       <header className={styles.header}>
         <h2 className={styles.title}>
           Things to do<span>soon!</span>
@@ -18,13 +18,7 @@ const List = () => {
       </p>
       <section className={styles.columns}>
         {columns.map((column) => (
-          <Column
-            key={column.id}
-            id={column.id}
-            title={column.title}
-            icon={column.icon}
-            cards={column.cards}
-          />
+          <Column key={column.id} {...column} />
         ))}
       </section>
       <ColumnForm />
