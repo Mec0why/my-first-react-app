@@ -4,8 +4,12 @@ import Card from '../Card/Card';
 import CardForm from '../CardForm/CardForm';
 
 const Column = (props) => {
+  const searchPhrase = useSelector((state) => state.searchPhrase);
+
   const cards = useSelector((state) => state.cards).filter(
-    (card) => card.columnId === props.id
+    (card) =>
+      card.columnId === props.id &&
+      card.title.toLowerCase().includes(searchPhrase.toLowerCase())
   );
 
   return (

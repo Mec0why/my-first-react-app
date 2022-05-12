@@ -14,6 +14,11 @@ const reducer = (state, action) => {
         ...state,
         cards: [...state.cards, { id: shortid(), ...action.payload }],
       };
+    case 'FILTER_CARD':
+      return {
+        ...state,
+        searchPhrase: action.payload
+      };
     default:
       return state;
   }
