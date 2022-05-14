@@ -17,7 +17,7 @@ const NavBar = () => {
               <Link to='/'>Home</Link>
             </li>
             <li>
-              <Link to='/favorite'>Favorite</Link>
+              <Link to='/favorites'>Favorites</Link>
             </li>
             <li>
               <Link to='/about'>About</Link>
