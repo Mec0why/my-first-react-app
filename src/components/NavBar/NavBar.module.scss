@@ -33,10 +33,13 @@ a {
     margin: 0;
 
     li {
-    padding: $base-size;
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
+        padding: $base-size;
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+    }
 
+    .linkActive {
+        color: $color-warning;
     }
 }
