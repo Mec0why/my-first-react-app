@@ -7,19 +7,19 @@ const NavBar = () => {
       <Container>
         <div className={styles.wrapper}>
           <div className={styles.icon}>
-            <a href='#/'>
+            <a href='/'>
               <span className={styles.icon + ' fa fa-tasks'}></span>
             </a>
           </div>
           <ul className={styles.mainnav}>
             <li>
-              <a href='#home'>Home</a>
+              <a href='/'>Home</a>
             </li>
             <li>
-              <a href='#order'>Favorite</a>
+              <a href='/favorites'>Favorites</a>
             </li>
             <li>
-              <a href='#booking'>About</a>
+              <a href='/about'>About</a>
             </li>
           </ul>
         </div>
