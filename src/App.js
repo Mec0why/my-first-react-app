@@ -1,19 +1,17 @@
 import NavBar from './components/NavBar/NavBar';
 import Container from './components/Container/Container.js';
-import Hero from './components/Hero/Hero.js';
-import SearchForm from './components/SearchForm/SearchForm.js';
-import List from './components/List/List.js';
+import Home from './components/Home/Home.js';
+import Favorites from './components/Favorites/Favorites.js';
+import About from './components/About/About.js';
 
 const App = () => {
   return (
     <main>
       <NavBar />
       <Container>
-        <div>
-          <Hero />
-          <SearchForm />
-          <List />
-        </div>
+        <Home />
+        <Favorites />
+        <About />
       </Container>
     </main>
   );
