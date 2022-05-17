@@ -13,7 +13,6 @@ const Card = (props) => {
     e.preventDefault();
     setIsFavorite((prevState) => !prevState);
     dispatch(toggleCardFavorite(props.id));
-    console.log(!isFavorite);
   };
 
   return (

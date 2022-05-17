@@ -14,10 +14,8 @@ export const getAllColumns = (state) => state.columns;
 
 export const getAllLists = (state) => state.lists;
 
-// export const getFavoriteCards = ({ cards }, columnId, isFavorite) =>
-//   cards.filter(
-//     (card) => card.columnId === columnId && card.isFavorite === isFavorite
-//   );
+export const getFavoriteCards = ({ cards }) =>
+  cards.filter((card) => card.isFavorite);
 
 export const getSearchPhrase = (state) => state.searchPhrase;
 
