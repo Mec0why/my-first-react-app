@@ -3,12 +3,14 @@ import PageTitle from '../PageTitle/PageTitle';
 import Card from '../Card/Card.js';
 import { useSelector } from 'react-redux';
 import { getFavoriteCards } from '../../redux/store';
+import { Navigate } from 'react-router-dom';
 
 const Favorites = () => {
   const favoriteCards = useSelector((state) => getFavoriteCards(state));
 
   console.log(favoriteCards);
 
+  if (favoriteCards.length === 0) return <Navigate to='/' />;
   return (
     <div>
       <div className={styles.hero}>
