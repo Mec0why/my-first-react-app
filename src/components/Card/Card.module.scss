@@ -1,3 +1,4 @@
+@use "sass:math";
 @import '../../styles/settings.scss';
 
 .card {
@@ -9,5 +10,19 @@
     border-radius: $radius;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-weight: bold;
+}
+
+.icon::before, button {
+    color: $color-warning;
+    font-size: ($base-size * 2);
+    vertical-align: middle;
+    position: relative;
+    border: none;
+    background: none;
+  }
+
+.active {
+    background-color: $color-warning;
 }
