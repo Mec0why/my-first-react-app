@@ -5,14 +5,6 @@ import columnsReducer from './columnsRedux';
 import cardsReducer from './cardsRedux';
 import searchStringReducer from './searchStringRedux';
 
-//selectors
-
-export const getSearchPhrase = (state) => state.searchPhrase;
-
-// action creators
-
-export const filterCard = (payload) => ({ type: 'FILTER_CARD', payload });
-
 const subreducers = {
   lists: listsReducer,
   columns: columnsReducer,
