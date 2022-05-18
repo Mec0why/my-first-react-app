@@ -40,39 +40,55 @@ export const toggleCardFavorite = (payload) => ({
 });
 
 const reducer = (state, action) => {
+  const newState = {
+    lists: listsReducer(state.lists, action),
+    columns: columnsReducer(state.columns, action),
+    cards: cardsReducer(state.cards, action),
+    searchPhrase: searchStringReducer(state.searchPhrase, action),
+  };
+
+  return newState;
+};
+
+const listsReducer = (statePart = [], action) => {
+  switch (action.type) {
+    case 'ADD_LIST':
+      return [...statePart, { ...action.payload, id: shortid() }];
+    default:
+      return statePart;
+  }
+};
+
+const columnsReducer = (statePart = [], action) => {
   switch (action.type) {
     case 'ADD_COLUMN':
-      return {
-        ...state,
-        columns: [...state.columns, { id: shortid(), ...action.payload }],
-      };
-    case 'ADD_CARD':
-      return {
-        ...state,
-        cards: [...state.cards, { id: shortid(), ...action.payload }],
-      };
-    case 'FILTER_CARD':
-      return {
-        ...state,
-        searchPhrase: action.payload,
-      };
-    case 'ADD_LIST':
-      return {
-        ...state,
-        lists: [...state.lists, { id: shortid(), ...action.payload }],
-      };
-    case 'TOGGLE_CARD_FAVORITE':
-      return {
-        ...state,
-        cards: state.cards.map((card) =>
-          card.id === action.payload
-            ? { ...card, isFavorite: !card.isFavorite }
-            : card
-        ),
-      };
-
+      return [...statePart, { ...action.payload, id: shortid() }];
     default:
-      return state;
+      return statePart;
+  }
+};
+
+const cardsReducer = (statePart = [], action) => {
+  switch (action.type) {
+    case 'ADD_CARD':
+      return [...statePart, { ...action.payload, id: shortid() }];
+    case 'TOGGLE_CARD_FAVORITE':
+      return statePart.map((card) =>
+        card.id === action.payload
+          ? { ...card, isFavorite: !card.isFavorite }
+          : card
+      );
+    default:
+      return statePart;
+  }
+};
+
+const searchStringReducer = (statePart = '', action) => {
+  switch (action.type) {
+    case 'FILTER_CARD':
+      return action.payload;
+    default:
+      return statePart;
   }
 };
 
