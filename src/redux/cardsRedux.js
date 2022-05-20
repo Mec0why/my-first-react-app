@@ -32,7 +32,7 @@ const cardsReducer = (statePart = [], action) => {
     case ADD_CARD:
       return [...statePart, { ...action.payload, id: shortid() }];
     case REMOVE_CARD:
-      return statePart.map((card) =>
+      return statePart.filter((card) =>
         card.id === action.payload ? !card : card
       );
     case TOGGLE_CARD_FAVORITE:
